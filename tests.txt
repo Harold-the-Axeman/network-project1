@@ -1,0 +1,23 @@
+################################################################################
+# tests.txt                                                                    #
+#                                                                              #
+# Description: Brief description of the testing methods for lisod             #
+#                                                                              #
+# Authors: Kaili Li <kailili@andrew.cmu.edu>                                   #
+#                                                                              #
+################################################################################
+
+
+Mainly use the cp1_checker.py for testing lisod. The steps are the following:
+
+1. Use the echo_client to test for the one connection situation.  
+2. Use the cp1_cheker.py to test the lisod. At first increase the number of 
+   connection, and then the number of read/write. Finally increase the size of
+   the data.
+3. Open some echo_client clients, and shut some of them manually. And watch the 
+   results.
+
+In addition, I print out some test information, and watch the sequence after each 
+select() return. Make sure that it works right.
+
+Test example: ./cp1_checker.py 127.0.0.1 9999 1000 20 4000 90

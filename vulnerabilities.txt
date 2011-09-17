@@ -1,0 +1,22 @@
+################################################################################
+# vulnerabilities.txt                                                          #
+#                                                                              #
+# Description: Vulnerabilities in the current implementation                   #
+#                                                                              #
+# Authors: Kaili Li <kailili@andrew.cmu.edu>                                   #
+#                                                                              #
+################################################################################
+
+The following are the vulnerabilities of the current version:
+1. The connections from the clients cannot be more than a fixed number that 
+   is hard-coded in the C code.
+
+2. Clients must send one data, and then receive it. It cannot send another data 
+   before it receive the first one. 
+   Note: the current version works well with the cp1_test.py scripts, but it is 
+   still a simple server that pay litter attention on the buffer management.
+ 
+3. Do not have code that deal with the situation that networks will shutdown. So,
+   the results cannot be expected.
+
+
