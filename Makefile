@@ -1,32 +1,21 @@
-CC =g++
-AR= ar
-RANLIB= ranlib
-#LIB = -L. -lxml
-LIB = -L. -lisci
+################################################################################
+# Makefile                                                                     #
+#                                                                              #
+# Description: This file contains the make rules for a echo server using linux #
+#              select() method.                                                              #
+#                                                                              #
+# Authors: Kaili Li <kailili@andrew.cmu.edu>                                   #
+#                                                                              #
+################################################################################
 
-all:isci server client init
+CC = gcc
+LIB = -L. 
 
-#xml: testxml.o xml.o tinyxml.o tinyxmlparser.o tinystr.o tinyxmlerror.o
-#	$(CC) -o testxml  testxml.o xml.o tinyxml.o tinyxmlparser.o tinystr.o tinyxmlerror.o
-#xml: xml.o tinyxml.o  tinyxmlparser.o tinyxmlerror.o tinystr.o 
-#	$(AR) rc libxml.a  xml.o tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o
-#	$(RANLIB) libxml.a
-#fileopr:isci testfileopr.o
-#	$(CC) -o test  testfileopr.o $(LIB)
-	
-isci: xml.o tinyxml.o  tinyxmlparser.o tinyxmlerror.o tinystr.o  fileopr.o
-	$(AR) rc libisci.a  xml.o tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o fileopr.o
-	$(RANLIB) libisci.a
-server:isci server.o
-	$(CC) -o server server.o $(LIB)
-client:client.o
-	$(CC) -o client client.o $(LIB)
-init:init.o
-	$(CC) -o init init.o $(LIB)
+all:lisod 
 
-#test:isci testfileopr.o
-#	$(CC) -o test testfileopr.o $(LIB)
+lisod: server.o 
+	$(CC) -o lisod server.o  $(LIB)
+
 clean:
 	rm -rf *.o
-	rm -rf server client init
-	rm -rf libisci.a
+	rm -rf lisod
